@@ -12,6 +12,10 @@ Corresponde a la validación que se realiza sobre los documentos Notas de venta 
 - Al momento de insertar los registros se gatilla un Trigger SQL (sobre tabla Gen_DocumentoV) que ejecuta un Store procedure llamado “Valida_NV_Autoventa” que posee la lógica de negocios.
 - Este procedimiento devuelve el resultado de la validación en formato HTML para que posteriormente se envíe un correo al usuario con resultados de la validación.
 
+::: tip
+La lista de precios por defecto es la **GENERAL**
+:::
+
 ## Validaciones
 
 ### Nota de Venta posee productos con precios en varias Lista de Precios (LP Cliente y LP General)
@@ -37,9 +41,9 @@ end
 
 ### Nota de Venta con montos fuera de rango Mínimo/Máximo habitual
 
-- Verifica los montos mínimos y máximos definidos en el "Mantenedor de Tramos" de cada Lista de precios.
+- Verifica los montos mínimos y máximos definidos en el ["Mantenedor de Tramos"](../validatenv/listaprecio.md) de cada Lista de precios.
 - Si Cliente no posee LP definida en maestro de clientes Flexline, asume LP general
-- Si la Lista de precio del cliente no posee Definición (Receta = "MinMax"), la validación tomará los valores por defecto que están definidos en el "Mantenedor de Tramos" de LP "PRUEBA 2" (ver anexo 1)
+- Si la Lista de precio del cliente no posee Definición (Receta = "MinMax"), la validación tomará los valores por defecto que están definidos en el ["Mantenedor de Tramos"](../validatenv/listaprecio.md) de LP "PRUEBA 2"
 
 ::: tip Importante
 
@@ -66,8 +70,8 @@ end
 ### Descuentos por volumen fuera de la regla (Venta / Unidades)
 
 - Considera dos tipos: por Unidades vendidas o por Venta Neta
-- En ambos casos revisa las ventas de los últimos 90 días y compara esos resultados contra lo definido en el “Mantenedor de Tramos” definida en la lista de precios del cliente.
-- Si la Lista de precio del cliente no posee Definición (Receta = “NETO” o “CANTIDAD”), la validación tomará los valores por defecto que están definidos en el "Mantenedor de Tramos" de LP "PRUEBA 2" (ver anexo 1)
+- En ambos casos revisa las ventas de los últimos 90 días y compara esos resultados contra lo definido en el ["Mantenedor de Tramos"](../validatenv/listaprecio.md) definida en la lista de precios del cliente.
+- Si la Lista de precio del cliente no posee Definición (Receta = “NETO” o “CANTIDAD”), la validación tomará los valores por defecto que están definidos en el ["Mantenedor de Tramos"](../validatenv/listaprecio.md) de LP "PRUEBA 2"
 - Si la definición de la tabla es en “CANTIDAD”, la validación comparará los Kilos de los últimos 90 días contra el rango definido en la Lista de Precios. Por el contrario, si la definición de la tabla es en “NETO”, la validación se realizará comparando los últimos 90 días de compra.
 
 ::: tip Importante
@@ -184,10 +188,10 @@ end
 
 ---
 
-## Correo Generado
+### Correo tipo Generado
 
-- 1.0 Nov-2020, Versión Original liberada
+![Email aviso](/img/Correo_Validacion.png)
 
 ::: warning
-Para cada empresa se debe configurar el archivo [**CNET2FLEX_Config.xml**](./config.md)
+Para cada empresa se debe configurar la tabla de código Gen_VendedoresMail que contiene los correos del vendedor
 :::

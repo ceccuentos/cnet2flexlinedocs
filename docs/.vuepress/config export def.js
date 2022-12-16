@@ -1,9 +1,9 @@
-module.exports = {
+export default {
     title: 'Guía de Referencia - Starfood',
     description: 'Documentación de proyectos de Codevsys en Starfood',
-    themeConfig: {
+    theme: defaultTheme({
         logo: '/img/Logo Codevsys Sii.jpg',
-        //displayAllHeaders: true, // Default: false
+        displayAllHeaders: true, // Default: false
         nav: [
             { text: 'Inicio', link: '/' },
             { text: 'Guía', link: '/guide/' },
@@ -16,10 +16,11 @@ module.exports = {
              [
                 '', /* /config/ */
              ],
-            '/validatenv/': [
+            '/validateNV/': [
                 {
                 text: 'Validación NV',
-                children: ['/validatenv/readme.md', '/validatenv/listaprecio.md']
+                collapsible: true,
+                children: ['/validateNV/readme.md', '/validateNV/listaprecio.md']
                 // '',      /* /bar/ */
                 // 'lprecio.md',
                 }
@@ -29,12 +30,13 @@ module.exports = {
               'config.md',  /* /foo/one.html */
               'proceso.md'   /* /foo/two.html */
             ],      
-            '/objsql/': [
+            '/objSQL/': [
                 '',      /* /bar/ */
               ],
       
           }
-    },
+    
+    }),
     plugins: [
         'vuepress-plugin-mermaidjs',
         '@vuepress/last-updated',
@@ -42,4 +44,6 @@ module.exports = {
             searchMaxSuggestions: 10
         }
     ]
-}
+  }
+
+            

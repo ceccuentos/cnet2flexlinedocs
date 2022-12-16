@@ -2,8 +2,7 @@
 
 ## [Integración ComercioNet con ERP Flexline](../cnet2Flexline/readme.md)
 
-Lectura de archivos .XML proveídos por la aplicación de ComercioNet e insertados como Nota de Venta a ERP Flexline para su proceso logístico.  
-[Ver...](../cnet2Flexline/readme.md)
+Lectura de archivos .XML proveídos por la aplicación de ComercioNet e insertados como Nota de Venta a ERP Flexline para su proceso logístico.
 
 ## [Validación de Notas de Venta de Aplicación Autoventa.io](../validateNV/readme.md)
 
