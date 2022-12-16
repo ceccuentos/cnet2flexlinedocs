@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    },
+    "devDependencies": {
+        "vuepress-plugin-mermaidjs": "^1.8.1"
+    },
+    "dependencies": {
+        "@vue/component-compiler-utils": "^3.3.0",
+        "@vuepress/shared-utils": "^1.9.7",
+        "lru-cache": "^7.14.1",
+        "markdown-it-emoji": "^2.0.2",
+        "vue-template-compiler": "^2.7.14"
+    }
+}
